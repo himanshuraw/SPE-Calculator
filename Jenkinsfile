@@ -15,7 +15,10 @@ pipeline {
 
         stage('Docker Build'){
             steps{
-                sh 'docker build -t $DOCKER_IMAGE .'
+//                 sh 'docker build -t $DOCKER_IMAGE .'
+                    script{
+                        docker.build("${DOCKER_IMAGE}", '.')
+                    }
             }
         }
     }
