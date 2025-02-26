@@ -29,5 +29,3 @@
         ports:
           - "9090:8080"
         command: "java com.himanshu.Main"
-        stdin_open: yes
-        tty: yes
