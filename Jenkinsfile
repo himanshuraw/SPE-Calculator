@@ -39,7 +39,7 @@ pipeline {
                         ansiblePlaybook(
                             playbook: 'deploy.yml',
                             inventory: 'inventory.ini',
-                            credentials: 'ansible-ssh'
+                            credentialsId: 'ansible-ssh'
                         )
                     }
                 }
