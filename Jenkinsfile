@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "himanshuraw/scientific-calculator:latest"
-        DOCKER_HUB_CREDENTIALS = "714e94e2-85a4-438d-a0be-3733132555a0"
+        DOCKER_HUB_CREDENTIALS = "dockerhub-credentials"
     }
     stages {
         stage('Build & Test'){
@@ -15,7 +15,6 @@ pipeline {
 
         stage('Docker Build'){
             steps{
-//                 sh 'docker build -t $DOCKER_IMAGE .'
                    script{
                        docker.build("${DOCKER_IMAGE}", '.')
                    }
@@ -25,7 +24,7 @@ pipeline {
         stage('Docker Push'){
             steps{
                 script {
-                    docker.withRegistry('', 'Secret text'){
+                    docker.withRegistry('',  DOCKER_HUB_CREDENTIALS){
                         sh "docker tag ${DOCKER_IMAGE} ${DOCKER_IMAGE}"
                         sh "docker push ${DOCKER_IMAGE}"
                     }
