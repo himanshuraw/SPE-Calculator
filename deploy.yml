@@ -28,3 +28,6 @@
         restart_policy: always
         ports:
           - "9090:8080"
+        command: "java com.himanshu.Main
+        interactive: yes
+        tty: yes
