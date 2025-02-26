@@ -8,7 +8,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("What operation do you want to perform");
+        System.out.println("What operation do you want to perform - ");
         System.out.println("1. Square root");
         System.out.println("2. Factorial");
         System.out.println("3. Natural Logarithm");
