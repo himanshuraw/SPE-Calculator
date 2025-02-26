@@ -1,0 +1,30 @@
+- name: Deploy Docker Container
+  hosts: 192.168.0.112
+  become: yes
+  tasks:
+    - name: Ensure Docker is Installed
+      apt:
+        name: docker.io
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: Pull latest Docker image
+      community.docker.docker_image:
+        name: himanshuraw/scientific-calculator
+        tag: latest
+        source: pull
+
+    - name: Stop and remove existing container (If running)
+      community.docker.docker_container:
+        name: scientific-calculator
+        state: absent
+        force_kill: yes
+
+    - name: Run the new container
+      community.docker.docker_container:
+        name: scientific-calculator
+        image: himanshuraw/scientific-calculator:latest
+        state: started
+        restart_policy: always
+        ports:
+          - "9090:8080"
