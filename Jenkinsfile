@@ -31,6 +31,20 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy with Ansible'){
+            steps{
+                script{
+                    withEnv(["ANISBLE_HOST_KEY_CHECKING=False"]){
+                        ansiblePlaybook(
+                            playbook: 'deploy.yml',
+                            inventory: 'inventory.ini',
+                            credentials: 'ansible-ssh'
+                        )
+                    }
+                }
+            }
+        }
     }
     post{
         failure{
