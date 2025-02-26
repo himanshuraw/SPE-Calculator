@@ -25,7 +25,7 @@ pipeline {
         stage('Docker Push'){
             steps{
                 script {
-                    docker.withRegistry('', 'DockerHubCred'){
+                    docker.withRegistry('', 'Secret text'){
                         sh "docker tag ${DOCKER_IMAGE} ${DOCKER_IMAGE}"
                         sh "docker push ${DOCKER_IMAGE}"
                     }
