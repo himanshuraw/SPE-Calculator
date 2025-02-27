@@ -11,16 +11,16 @@ public class Main {
         long longNumber;
 
         while(true){
-            System.out.println("What operation do you want to perform - ");
             System.out.println("1. Square root");
             System.out.println("2. Factorial");
             System.out.println("3. Natural Logarithm");
             System.out.println("4. Power");
             System.out.println("5. Exit");
 
-            System.out.println("Enter the number");
-
+            System.out.println("What operation do you want to perform - ");
             int choice = scanner.nextInt();
+
+            System.out.println("Enter the number");
 
             switch (choice){
                 case 1:
