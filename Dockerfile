@@ -6,5 +6,4 @@ COPY target/Calculator-1.0-SNAPSHOT.jar app.jar
 
 #ENTRYPOINT ["java", "-jar", "app.jar"]
 #
-#CMD ["java", "-jar", "app.jar"]
-CMD ["tail", "-f", "/dev/null"]
+CMD ["java", "-jar", "app.jar"]
