@@ -28,3 +28,5 @@
         restart_policy: always
         ports:
           - "9090:8080"
+        interactive: yes
+        tty: yes
