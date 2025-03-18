@@ -1,5 +1,6 @@
 - name: Deploy Docker Container
-  hosts: 192.168.0.112
+#  hosts: 192.168.0.112
+  hosts: localhost
   become: yes
   tasks:
     - name: Ensure Docker is Installed
