@@ -22,3 +22,5 @@ public class ScientificCalculator {
         return Math.pow(n, exp);
     }
 }
+
+// test
